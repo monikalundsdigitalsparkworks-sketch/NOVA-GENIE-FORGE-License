@@ -2,12 +2,10 @@
   "version": 2,
   "functions": {
     "api/validate.ts": {
-      "runtime": "vercel-node@4.0.0"
+      "runtime": "nodejs18.x"
     }
   },
   "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
-}]
+    { "src": "/api/(.*)", "dest": "/api/$1" }
+  ]
 }
