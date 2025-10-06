@@ -33,11 +33,6 @@ export default async function handler(req: any, res: any) {
     const expired = lic.expires_at && new Date(lic.expires_at) < new Date();
     if (expired) return res.status(403).json({ ok: false, reason: "expired" });
 
-    // Optional: check scope via join table (if you created it)
-    // const { data: scope } = await supabase.from("license_genies").select("genie_id")
-    //   .eq("license_id", license).eq("genie_id", genieId).maybeSingle();
-    // if (!scope) return res.status(403).json({ ok:false, reason:"not_authorized_for_genie" });
-
     const watermark = lic.tier === "trial" ? "Trial • NOVA Genie Forge™" : "";
     const fingerprint = Seat:${String(userId).slice(-4)}•${String(lic.fingerprint_salt || "").slice(0,4)};
 
